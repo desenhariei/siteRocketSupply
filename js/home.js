@@ -166,6 +166,7 @@ class CarrosselHomeGetImgs {
             const imgLinks = await getFolder(val, this.query)
             this.links.push(...imgLinks)
             this.links = this.links.map(el => el.replace('.preview', ''))
+            console.log(this.links)
         }
     }
 
