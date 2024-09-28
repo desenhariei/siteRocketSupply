@@ -1,0 +1,45 @@
+#section03 {
+    position: relative;
+    width: 100%;
+    height: 250vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--vermelho);
+    overflow-y: hidden;
+
+}
+
+#section03::before {
+    z-index: 0;
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: url(../../../assets/imagens/ambientacao/rocketTemplate.png);
+    opacity: 0.2;
+}
+
+
+#section03>div {
+    z-index: 1;
+    position: relative;
+    width: clamp(10px, 40vw, 250px);
+    padding: 10px;
+    transform: translate(0, 20px);
+}
+
+#section03>div:nth-child(odd) {
+    transform: translateY(-550%);
+}
+
+/* Container invertido */
+#section03>div:nth-child(even) {
+    transform: translateY();
+}
+
+#section03>div>img {
+    width: 100%;
+    box-shadow: 2px 2px 3px var(--preto);
+    filter: brightness(0.7);
+}

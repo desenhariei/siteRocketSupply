@@ -1,0 +1,183 @@
+#section02 {
+    width: 100%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    top: calc(100vh - 100px);
+    overflow-x: hidden;
+}
+
+/* Transição */
+#transitionSmokeHome {
+    width: 100%;
+    position: relative;
+}
+
+/* Astronauta */
+#astronauta01Home {
+    z-index: 1;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    height: 30vw;
+    width: 30vw;
+    max-height: 150px;
+    max-width: 150px;
+    background: url(../../../assets/imagens/ambientacao/astronautaFoquete01.png);
+    background-size: contain;
+    filter: brightness(1.2);
+    animation: astronauta01Bounce 2s infinite alternate ease-in-out;
+}
+
+/* Animação Astronauta */
+@keyframes astronauta01Bounce {
+    from {
+        transform: translateY(5%);
+    }
+
+    to {
+        transform: translateY(-5%);
+    }
+}
+
+/* Impulso do Foguete */
+#fumacaImpulsoHome {
+    z-index: 0;
+    height: 30vw;
+    width: 30vw;
+    max-height: 170px;
+    max-width: 170px;
+    background: url(../../../assets/imagens/ambientacao/impulsoFoguete.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: clamp(10px, 18vw, 80px);
+    left: clamp(50%, 54vw, calc(50% + 18px));
+    transform: translate(-50%);
+}
+
+/* Fumaça Base */
+/* Fumaça 2 */
+#fumacaBase02Home {
+    opacity: 0.7;
+    background-position-x: -100px;
+}
+
+/* Fumaça 3 */
+#fumacaBase03Home {
+    opacity: 0.5;
+    background-position-x: 100px;
+}
+
+/* Todas as Fumaças */
+.fumacaBaseHome {
+    height: clamp(3vw, 20vw, 120px);
+    width: 150vw;
+    background: url(../../../assets/imagens/ambientacao/fumacaVermelha.webp);
+    background-size: clamp(100vw, 400vw, 2000px) 100%;
+    background-repeat: repeat-x;
+    position: absolute;
+    left: -50vw;
+}
+
+/* Content */
+#section02Container {
+    width: 100%;
+    margin-top: clamp(3vw, 20vw, 120px);
+    background-color: #232833;
+}
+
+.section02Content {
+    width: 100%;
+    position: relative;
+}
+
+#gradeSection02Home {
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vw;
+    background: url(../../../assets/imagens/ambientacao/grade.png);
+    background-size: 50vw 50vw;
+    filter: invert();
+    opacity: 0.03;
+}
+
+#tetoVermelhoHome {
+    display: inline-block;
+    transform: translate(0, -1px);
+    width: clamp(10px, 100vw, 1200px);
+    height: clamp(10px, 100vw, 1200px);
+    background: url(../../../assets/imagens/ambientacao/fragmentosFibonacci/f-001.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(-5px 5px 2px #000f0156)
+}
+
+.historiaHome {
+    position: absolute;
+    left: 0;
+    top: clamp(10px, 10vw, 155px);
+    width: clamp(10px, 45vw, 540px);
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+    margin: clamp(10px, 5vw, 50px);
+    font-size: clamp(0.5rem, 2.7vw, 1.7rem);
+}
+
+#chaoVermelhoHome {
+    display: block;
+    width: clamp(10px, 100vw, 1200px);
+    height: clamp(10px, 50vw, 600px);
+    background: url(../../../assets/imagens/ambientacao/fragmentosFibonacci/f-002.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    filter: drop-shadow(5px 5px 2px #000f0156)
+}
+
+#astronauta02Home {
+    display: block;
+    transform: translate(5%, -10px);
+    width: clamp(10px, 70vw, 840px);
+    height: clamp(10px, 70vw, 840px);
+    background: url(../../../assets/imagens/ambientacao/astronautaVelho.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    filter: drop-shadow(0 5px 5px #000f01);
+    animation: astronautaBounce 3s infinite alternate linear;
+}
+
+@keyframes astronautaBounce {
+    from {
+        background-position-y: 0;
+    }
+
+    to {
+        background-position-y: clamp(1px, 5vw, 10px);
+    }
+}
+
+.faixaRocketHome {
+    position: relative;
+    display: block;
+    height: 100px;
+    width: 150vw;
+    background: #172944;
+    background-size: 200px 200px;
+    transform: rotate(-5deg);
+}
+#imgFaixaRocketHome{
+    display: block;
+    height: 200px;
+    width: 150vw;
+    background:  url(../../../assets/imagens/ambientacao/logoRocketBranco.png);
+    background-size: contain;
+    transform: translate(0, -25%);
+    opacity: 0.1;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Supply</title>
+    <link rel="stylesheet" href="../home/header.css">
+    <link rel="stylesheet" href="../home/main.css">
+</head>
+
+<body>
+    <div id="containerStars"></div>
+    <header>
+        <section id="cabecalhoMain">
+            <a href="#" class="underLineOn">HOME</a>
+            <article id="cabecalhoSecond">
+                <a href="#" class="underLineOff">Catálago</a>
+                <a href="#" class="underLineOff">Promoções</a>
+                <a href="#" class="underLineOff">Destaques</a>
+            </article>
+        </section>
+    </header>
+
+    <main>
+        <section id="animationsHome">
+            <article>
+                <h1 id="sloganHome">Qualidade que veste <br> as empresas que lideram.</h1>
+            </article>
+            <article>
+                <img src="../../assets/PNG/logoRocket/logoRocket0000.png" alt="Logo Rocket Supply" id="frameLogoAnimation">
+            </article>
+            <article>
+                <div id="sombraCamisa3dParada"></div>
+            </article>
+            <article>
+                <img src="../../assets/PNG/camisaParada/0010.png" alt="Camisa 3d" id="camisa3dParada">
+            </article>
+        </section>
+        <section id="apresentacao">
+            <article>
+                <img src="../../assets/Illustrator/PNG/rocketSupplyBolaBranca.png" alt="Logo da Rocket" id="imgLogoBolaBranca">
+            </article>
+            <section id="aboutUs">
+                <article>
+                    <h2 id="titleAboutUs">Quem nós Somos?</h2>
+                </article>
+                <article>
+                    <p id="textAboutUs">
+                        Com quase uma década de experiência no mercado, a Rocket Supply se orgulha em oferecer as melhores estampas para as melhores empresas. <br><br>
+
+                        Nossa missão é mais do que apenas criar peças de vestuário personalizadas, é ajudar você a alcançar novas alturas. Assim como uma nave que precisa da combinação perfeita de força e precisão para alcançar o espaço, acreditamos que o design certo é essencial para o sucesso do seu negócio. <br><br>
+
+                        Com uma atenção meticulosa aos detalhes, cada estampa que produzimos é projetada com capricho e dedicação. Além disso, nosso compromisso vai além do produto final: estamos ao seu lado, oferecendo consultoria especializada para garantir que as suas escolhas de estampa maximizem os seus resultados. <br><br>
+                        
+                        Na Rocket Supply, entendemos que o mercado é dinâmico, e por isso nos mantemos sempre um passo à frente, buscando inovações que façam sua marca se destacar. Nossa missão é garantir que sua empresa tenha a força e o estilo para conquistar qualquer galáxia de oportunidades.
+                    </p>
+                </article>
+            </section>
+            
+        </section>
+        <section id="carrosselHome">
+            <article id="bgDaRocket"><img src="../../assets/Illustrator/PNG/bgRocket.png" alt=""></article>
+            <article id="carrosselColuna1" class="carrosselColuna">
+            </article>
+            <article id="carrosselColuna2" class="carrosselColuna">            
+            </article>
+        </section>
+        <section id="desfechoHome">
+            <article>
+                <h2 id="tituloDesfecho">Conferir produtos?</h2>
+            <button id="botaoAdoraria">Vamos Lá</button>
+            </article>  
+        </section>
+    </main>
+
+    <script src="../home/homeAnimations.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+/* Faixa Rocket */
+#transicaoFaixa {
+    transform: translateY(-70%);
+}
+
+/* Container azul */
+.faixaRocketHome2{
+    height: clamp(20px, 20vw, 200px);
+}
+
+/* Imgs da logo branca */
+.faixaRocketHome2::after {
+    background-image: url(../../../assets/imagens/ambientacao/simplifyRocket.webp);
+    background-size: clamp(20px, 20vw, 200px);
+    animation: logoRocketBranco2 5s infinite linear;
+}
+
+@keyframes logoRocketBranco2 {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: clamp(20px, 20vw, 200px);
+    }
+}

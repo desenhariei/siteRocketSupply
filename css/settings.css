@@ -1,0 +1,106 @@
+/* Variaveis */
+:root {
+    /* Cores */
+    --branco: #f3f5ff;
+    --brancoTrasparente: #f3f4ff86;
+    --vermelho: #a6210a;
+    --azul: #172944;
+    --azulEscuro: #232833;
+    --preto: #00010f;
+
+    /* Fonts */
+    --hudFont: "Rubik", Verdana, Helvetica, sans-serif;
+    --textFont: "Poppins", Verdana, Helvetica, sans-serif;
+}
+
+/* Presets gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--branco);
+    font-weight: 500;
+    font-size: 1em;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+}
+
+/* Body */
+body {
+    overflow-x: hidden;
+    height: max-content;
+    overflow-y: initial;
+}
+
+/* Container presets de alinhamento padrão */
+.container {
+    width: 100vw;
+    max-width: 1000px;
+}
+
+.aling1 {
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.aling2 {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Espelhamento da Section02 */
+.mirrorX {
+    transform: scaleX(-1);
+}
+
+.mirrorXFaixa {
+    transform: translate(0, -50%) scaleX(-1) !important;
+}
+
+.mirrorXAstronauta {
+    animation: astronautaBounceMirror 7s infinite alternate ease-in-out !important;
+}
+
+/* Faixa Rocket communs */
+.faixaMask {
+    height: clamp(60px, 50vw, 600px);
+    width: 100%;
+    z-index: 5;
+    overflow-x: hidden;
+    position: absolute;
+}
+
+.faixa {
+    position: relative;
+    top: 40%;
+    width: 150vw;
+    background: #172944;
+    background-size: 200px 200px;
+    transform: rotate(5deg) translate(-10%, -50%);
+    transform-origin: left;
+    box-shadow: 0 2px 5px #00010f2a,
+        0 5px 10px #00010f2f,
+        0 -2px 5px #00010f2d,
+        0 -5px 10px #00010f2f;
+}
+
+.faixa::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+}
+@media screen and (min-width: 980px){
+    .faixa{
+        top: 42%;
+    }
+}
+
+/* Partes Principais */
+header {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+}
