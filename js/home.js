@@ -134,7 +134,7 @@ class CarrosselHomeGetImgs {
 
         /* Variáveis para pegar os links da pastas onde estão recursos */
         this.linkslAll = []
-        this.pathAll = '/assets/imagens/fotos'
+        this.pathAll = '../assets/imagens/fotos'
         this.queryAll = 'ul#files.view-tiles li a.icon-directory:not([title=".."])'
 
         /* Variáveis para pegar os links dos recursos */
