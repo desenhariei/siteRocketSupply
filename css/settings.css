@@ -49,17 +49,17 @@ body {
     margin: 0 auto;
 }
 
-/* Espelhamento da Section02 */
+/* Espelhamento dos containers da Section02 */
 .mirrorX {
     transform: scaleX(-1);
 }
 
 .mirrorXFaixa {
-    transform: translate(0, -50%) scaleX(-1) !important;
+    transform: translate(0, -50%) scaleX(-1);
 }
 
 .mirrorXAstronauta {
-    animation: astronautaBounceMirror 7s infinite alternate ease-in-out !important;
+    animation: astronautaBounceMirror 7s infinite alternate ease-in-out;
 }
 
 /* Faixa Rocket communs */
@@ -95,6 +95,26 @@ body {
 @media screen and (min-width: 980px){
     .faixa{
         top: 42%;
+    }
+}
+
+/* containers communs */
+/* Grade */
+.grade{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: invert();
+    animation: opacidadeGrade 5s ease-in-out infinite alternate;
+}
+
+@keyframes opacidadeGrade {
+    from {
+        opacity: 0.03;
+    }
+
+    to {
+        opacity: 0.01;
     }
 }
 

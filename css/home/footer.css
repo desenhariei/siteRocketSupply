@@ -1,0 +1,20 @@
+footer{
+    z-index: 5;
+    position: relative;
+    margin-top: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--vermelho);
+}
+
+footer> *{
+    color: var(--branco);
+    font-family: var(--textFont);
+    opacity: 0.2;
+}
+footer>a{
+    opacity: 0.3;
+    text-decoration: underline;
+}

@@ -1,0 +1,70 @@
+#section04 {
+    z-index: 4;
+    position: relative;
+    background-color: var(--azulEscuro);
+    display: flex;
+    overflow: hidden;
+}
+
+/* Grade */
+#section04>img:nth-of-type(1) {
+    z-index: -1;
+}
+
+/* Formas geométricas */
+#section04>img:nth-of-type(n+2) {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+}
+
+/* Forma geométrica cima */
+#section04>img:nth-of-type(2) {
+    top: 0;
+}
+
+/* Forma geométrica baixo */
+#section04>img:nth-of-type(3) {
+    bottom: 0;
+    transform: scale(-1);
+}
+
+/* Img e o Texto */
+#section04>section {
+    display: flex;
+    height: clamp(10px, 60vw, 600px);
+    margin: clamp(10px, 10vw, 100px) 0 clamp(5px, 10vw, 30px) 0;
+}
+
+/* Texto */
+#section04>section>section {
+    width: clamp(10px, 60vw, 650px);
+    font-family: var(--textFont);
+    height: clamp(auto, 100vw, 600px);
+    padding: clamp(5px, 5vw, 50px) clamp(5px, 7vw, 50px);
+}
+
+#section04>section>section>h2 {
+    font-size: clamp(0.4rem, 5vw, 3.4rem);
+    font-weight: 700;
+}
+
+/* Botão */
+#section04>section>section>button {
+    font-size: clamp(0.3em, 4vw, 1.5em);
+    font-weight: 600;
+    background-color: var(--vermelho);
+    padding: clamp(5px, 2vw, 15px) clamp(10px, 5vw, 40px);
+    border-radius: 3px;
+    margin: clamp(5px, 5vw, 50px) 0;
+}
+
+/* Astronauta */
+#section04>section>img {
+    position: absolute;
+    width: 60%;
+    bottom: 0;
+    right: 0;
+    filter: drop-shadow(1px 1px 1px #00010f) drop-shadow(0 5px 5px #000f01);
+    animation: astronautaBounce 7s infinite alternate ease-in-out;
+}

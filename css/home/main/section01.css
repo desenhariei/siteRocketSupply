@@ -14,7 +14,7 @@
     width: calc(100px + 100vw);
     top: -50px;
     left: -50px;
-    background: url(../../../assets/imagens/ambientacao/spaceHome.webp), var(--preto);
+    background: url(../../../assets/imagens/spaceHome.webp), var(--preto);
     background-position-x: -300px;
     background-size: 100vw 100vw;
 

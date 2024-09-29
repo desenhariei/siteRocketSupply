@@ -10,28 +10,9 @@
     width: 100%;
 }
 
-@media screen and (max-width: 777px) {
+@media screen and (max-width: 875px) {
     .content02 {
         height: auto;
-    }
-}
-
-/* Grade */
-.content02>img:nth-of-type(1) {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    filter: invert();
-    animation: opacidadeGrade 5s ease-in-out infinite alternate;
-}
-
-@keyframes opacidadeGrade {
-    from {
-        opacity: 0.03;
-    }
-
-    to {
-        opacity: 0.02;
     }
 }
 
@@ -54,7 +35,6 @@
 
 /* Texto */
 .content02>section>article>div {
-    position: about;
     width: 100%;
     font-family: var(--textFont);
     text-align: justify;
@@ -73,7 +53,7 @@
     left: clamp(1px, 2vw, 20px);
 }
 
-@media screen and (max-width: 777px) {
+@media screen and (max-width: 875px) {
     .content02>section>article {
         margin-top: 50px;
     }
@@ -139,7 +119,7 @@
 
 /* Imgs da logo branca */
 .faixaRocketHome::after { 
-    background-image: url(../../../assets/imagens/ambientacao/rocketLogoBranca.webp);
+    background-image: url(../../../assets/imagens/rocketLogoBranca.webp);
     background-size: clamp(1px, 100vw, 1000px);
     animation: logoRocketBranco 20s infinite linear;
 }

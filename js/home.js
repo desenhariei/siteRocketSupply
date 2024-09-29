@@ -30,9 +30,10 @@ class FumacaBaseHomeAnimation {
         /* Coleta a variação do scrollY */
         window.addEventListener('scroll', () => {
             this.windowAltAgora = window.scrollY
-            this.windowAltVariat = this.windowAgoraAlt - this.windowUltimoAlt
-            this.windowUltimoAlt = this.windowAgoraAlt
+            this.windowAltVariat = this.windowAltAgora - this.windowUltimoAlt
+            this.windowUltimoAlt = this.windowAltAgora
 
+            /* Garante que seja pego apenas a variação do scroll */
             clearInterval(this.isScrolling)
             this.isScrolling = setInterval(() => {
                 this.windowAltVariat = 0
@@ -70,19 +71,22 @@ class FumacaBaseHomeAnimation {
         this.fumaca2PosX = parseFloat(window.getComputedStyle(this.fumaca2).backgroundPositionX)
         this.fumaca3PosX = parseFloat(window.getComputedStyle(this.fumaca3).backgroundPositionX)
 
-        /* Controla a variavel de deslocamento de cada animação */
+        /* Função que controla a variável de deslocamento de cada animação */
+        const deslocCtrl = (sent, desloc, size, vel) => {
+            if (sent === 'direita') {
+                desloc < size ? (desloc += vel + this.windowAltVariat) : desloc = 0
+            } else if (sent === 'equerda') {
+                desloc > -size ? (desloc -= vel + this.windowAltVariat) : desloc = 0
+            }
+            return desloc
+        }
+        /* Executa a função que controla a variável de deslocamento de cada animação */
         /* Fumaça 1 */
-        this.fumaca1Desloc < this.fumaca1SizeX
-            ? (this.fumaca1Desloc += 1)
-            : this.fumaca1Desloc = 0
+        this.fumaca1Desloc = deslocCtrl(this.fumaca1Sent, this.fumaca1Desloc, this.fumaca1SizeX, this.fumaca1Vel)
         /* Fumaça 2 */
-        this.fumaca2Desloc < this.fumaca2SizeX
-            ? (this.fumaca2Desloc += 1)
-            : this.fumaca2Desloc = 0
+        this.fumaca2Desloc = deslocCtrl(this.fumaca2Sent, this.fumaca2Desloc, this.fumaca2SizeX, this.fumaca2Vel)
         /* Fumaça 3 */
-        this.fumaca3Desloc > -this.fumaca3SizeX
-            ? (this.fumaca3Desloc -= 1)
-            : this.fumaca3Desloc
+        this.fumaca3Desloc = deslocCtrl(this.fumaca3Sent, this.fumaca3Desloc, this.fumaca3SizeX, this.fumaca3Vel)
 
 
         /* Executa o loop de animação para cada elemento */
@@ -130,7 +134,7 @@ class CarrosselHomeGetImgs {
 
         /* Variáveis para pegar os links da pastas onde estão recursos */
         this.linkslAll = []
-        this.pathAll = '../assets/fotos/'
+        this.pathAll = '../assets/imagens/fotos/'
         this.queryAll = 'ul#files.view-tiles li a.icon-directory:not([title=".."])'
 
         /* Variáveis para pegar os links dos recursos */
@@ -166,7 +170,6 @@ class CarrosselHomeGetImgs {
             const imgLinks = await getFolder(val, this.query)
             this.links.push(...imgLinks)
             this.links = this.links.map(el => el.replace('.preview', ''))
-            console.log(this.links)
         }
     }
 
@@ -201,11 +204,11 @@ class CarrosselParallax {
     constructor() {
         this.section03 = document.getElementById('section03')
         this.containers = Array.from(document.querySelectorAll('#section03>div'))
-         /* - parseFloat(window.getComputedStyle(this.section03).height) */
         this.containersAtt = []
         this.init()
 
     }
+    /* Inicia a aplicação */
     init() {
         this.setContAtt()
         this.changeAtt()
@@ -222,16 +225,15 @@ class CarrosselParallax {
         })
 
     }
+    /* Altera o translate */
     changeAtt() {
-        console.log(this.containersAtt[1].pos)
         window.addEventListener('scroll', () => {
             this.startEffect = (this.section03.getBoundingClientRect().top) - parseFloat(window.getComputedStyle(this.section03).height)
-            let windowHeight = window.scrollY 
+            let windowHeight = window.scrollY
 
-           
+
             if (this.startEffect <= 0) {
                 this.containersAtt.forEach((val, i, arr) => {
-                    console.log(val.pos)
                     if (i % 2 === 0) {
                         this.containers[i].style.transform = `translate(0, ${val.pos + (windowHeight * 2)}px)`
                     } else {

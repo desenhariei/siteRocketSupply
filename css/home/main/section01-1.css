@@ -67,7 +67,7 @@
 .fumacaBaseHome {
     height: clamp(10px, 20vw, 120px);
     width: 150vw;
-    background: url(../../../assets/imagens/ambientacao/fumacaVermelha.webp);
+    background: url(../../../assets/imagens/fumacaVermelha.webp);
     background-size: clamp(100vw, 400vw, 2000px) 100%;
     position: absolute;
     filter: drop-shadow(0 0 5px var(--vermelho));
