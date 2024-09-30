@@ -129,18 +129,13 @@ class FumacaBaseHomeAnimation {
 /* Animação do carrossel */
 class CarrosselHomeGetImgs {
     constructor() {
+        this.linksAll = []
+        this.linksImg = []
+        this.pathAll = 'assets/imagens/fotos/'
+        this.regex = /\/fotos\/\w+\//
+
         /* Container onde vão ficar as imgs */
         this.containerImg = document.querySelectorAll('#section03 div')
-
-        /* Variáveis para pegar os links da pastas onde estão recursos */
-        this.linkslAll = []
-        this.pathAll = '/assets/imagens/fotos/'
-        this.queryAll = 'ul#files.view-tiles li a.icon-directory:not([title=".."])'
-
-        /* Variáveis para pegar os links dos recursos */
-        this.links = []
-        this.path = []
-        this.query = 'ul#files.view-tiles li a.icon-image:not([title=".."])'
 
         /* Inicia */
         this.init()
@@ -150,51 +145,71 @@ class CarrosselHomeGetImgs {
     async init() {
         await this.getImgLinks()
         this.getValueImg()
-    }
+    }  
 
-    /* Pega todos os links de recursos */
-    async getImgLinks() {
-        /* Função carrega recursos a partir de um caminho e um querySelector */
-        const getFolder = async (path, query) => {
-            this.arqu = await (await fetch(path)).text()
-            this.textToHtml = new DOMParser
-            this.arquHtml = this.textToHtml.parseFromString(this.arqu, 'text/html')
-            this.folderLinks = Array.from(this.arquHtml.querySelectorAll(query))
-            return this.folderLinks.map(el => el.href)
+/* Pegra os links e converte em array */
+async getLinks(path){
+    let response = await (await fetch(path)).text()
+    let convetHtml = new DOMParser
+    let responsetHtml = convetHtml.parseFromString(response, 'text/html')
+    return Array.from(responsetHtml.querySelectorAll('a')).map(arr => arr.href)
+}
+
+/* Filtra para somente links relevantes */
+async filter(arr){
+    const arrForm = []
+    arr.forEach((val, i, arr) => {
+        if (this.regex.test(val)) {
+            arrForm.push(val)
         }
-        /* Pega os caminhos das pastas com imgs */
-        this.linkslAll = await getFolder(this.pathAll, this.queryAll)
+    })
+    return arrForm
+}
 
-        /* Pega o caminho de todas as imgs */
-        for (const val of this.linkslAll) {
-            const imgLinks = await getFolder(val, this.query)
-            this.links.push(...imgLinks)
-            this.links = this.links.map(el => el.replace('.preview', ''))
-        }
+async getImgLinks(){
+    let linksImgInform = []
+    /* Pego todos os links para as imgs */
+    const links = await this.getLinks(this.pathAll)
+    /* Filtro os caminhos relevantes */
+    this.linksAll = await this.filter(links)
+
+    /* Pega todos os links das imgs e remove o .preview delas */
+    for (const val of this.linksAll) {
+        linksImgInform.push((await this.getLinks(val)).map(arr => arr.replace('.preview', '')))
     }
 
-    /* Cria img, passar o src e coloca no container certo */
-    createImg(path, i) {
-        let img = document.createElement('img')
-        img.src = path
-        this.containerImg[i].appendChild(img)
-    }
-
-    /* Coloca a quantidade certa de img em cada container */
-    getValueImg() {
-        let linksPerCont = []
-        const imgPerCont = Math.floor(this.links.length / this.containerImg.length)
-
-        for (let i = 0; i < this.containerImg.length; i++) {
-            /* Separa as img de cada container em um array */
-            linksPerCont[i] = this.links.slice(imgPerCont * i,
-                i < this.containerImg.length ? imgPerCont * (i + 1) : this.links.length)
-
-            linksPerCont[i].forEach((path) => {
-                this.createImg(path, i)
-            })
+    /* Remove links que não levam a imgs */
+    for (const val of linksImgInform) {
+        for (const val2 of val) {
+            if (this.regex.test(val2)) {
+                this.linksImg.push(val2)
+            }
         }
     }
+}
+
+/* Cria img, passar o src e coloca no container certo */
+createImg(path, i) {
+    let img = document.createElement('img')
+    img.src = path
+    this.containerImg[i].appendChild(img)
+}
+
+/* Coloca a quantidade certa de img em cada container */
+getValueImg() {
+    let linksPerCont = []
+    const imgPerCont = Math.floor(this.linksImg.length / this.containerImg.length)
+
+    for (let i = 0; i < this.containerImg.length; i++) {
+        /* Separa as img de cada container em um array */
+        linksPerCont[i] = this.linksImg.slice(imgPerCont * i,
+            i < this.containerImg.length ? imgPerCont * (i + 1) : this.linksImg.length)
+
+        linksPerCont[i].forEach((path) => {
+            this.createImg(path, i)
+        })
+    }
+}
 
 
 }
