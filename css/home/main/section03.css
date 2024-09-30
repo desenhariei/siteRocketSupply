@@ -4,6 +4,7 @@
     height: 250vh;
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
     background-color: var(--vermelho);
     overflow-y: hidden;
@@ -29,23 +30,35 @@
 #section03>div {
     z-index: 1;
     position: relative;
-    width: clamp(10px, 40vw, 250px);
-    height: max-content;
-    padding: 0 10px;
+    width: clamp(10px, 40vw, 230px);
+    height: 18000px;
     transform: translate(0, 20px);
+    filter: drop-shadow(2px 2px 5px var(--preto));
+    
+}
+#section03>div:nth-last-of-type(1){
+    background: url(../../../assets/imagens/carrossel01.webp);
+    background-size: 100% auto;
+}
+#section03>div:nth-last-of-type(2){
+    background: url(../../../assets/imagens/carrossel02.webp);
+    background-size: 100% auto;
+}
+#section03>div:nth-last-of-type(3){
+    background: url(../../../assets/imagens/carrossel01.webp);
+    background-size: 100% auto;
+}
+#section03>div:nth-last-of-type(4){
+    background: url(../../../assets/imagens/carrossel03.webp);
+    background-size: 100% auto;
 }
 
-#section03>div:nth-child(odd) {
-    margin-top: clamp(-15000px, -6000vw, -10px);
+#section03>div:nth-last-of-type(even) {
+    transform: translateY(clamp(-16000px, -2600vw, -10px));
 }
 
 /* Container invertido */
-#section03>div:nth-child(even) {
-    transform: translateY(1000px);
+#section03>div:nth-last-of-type(odd) {
+    margin-bottom: translateY(clamp(10px, 20vw, 10000px));
 }
 
-#section03>div>img {
-    width: 100%;
-    box-shadow: 2px 2px 3px var(--preto);
-    filter: brightness(0.7);
-}
