@@ -124,7 +124,6 @@ class FumacaBaseHomeAnimation {
         requestAnimationFrame(this.fumacaAnimate.bind(this))
     }
 }
-(new FumacaBaseHomeAnimation())
 
 /* Animação do carrossel */
 class CarrosselParallax {
@@ -174,4 +173,10 @@ class CarrosselParallax {
         })
     }
 }
-(new CarrosselParallax())
+
+document.addEventListener('DOMContentLoaded',()=>{
+    (new FumacaBaseHomeAnimation())
+})
+document.addEventListener('DOMContentLoaded',()=>{
+    (new CarrosselParallax())
+})

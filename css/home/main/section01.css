@@ -78,8 +78,9 @@
 
 /* Slogan */
 #section01>h1 {
+    position: relative;
     margin: 20px;
     text-align: center;
     font-family: var(--hudFont);
-    opacity: 0.5;
+    opacity: 0.7;
 }
