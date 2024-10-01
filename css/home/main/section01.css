@@ -53,7 +53,7 @@
 }
 
 /* Camisa Caindo */
-#section01>section>img:nth-of-type(1) {
+#section01>section>video:nth-of-type(1) {
     z-index: 1;
     position: relative;
     background-size: contain;
@@ -65,7 +65,7 @@
 }
 
 /* Logo */
-#section01>section>img:nth-of-type(2) {
+#section01>section>video:nth-of-type(2) {
     z-index: 0;
     position: absolute;
     transform: translate(0, 40%);
