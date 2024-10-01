@@ -31,7 +31,7 @@
     z-index: 1;
     position: relative;
     width: clamp(10px, 40vw, 230px);
-    height: 18000px;
+    height: 20000px;
     transform: translate(0, 20px);
     filter: drop-shadow(2px 2px 5px var(--preto));
     
@@ -54,7 +54,7 @@
 }
 
 #section03>div:nth-last-of-type(even) {
-    transform: translateY(clamp(-16000px, -2600vw, -10px));
+    transform: translateY(clamp(-20000px, -2600vw, -10px));
 }
 
 /* Container invertido */

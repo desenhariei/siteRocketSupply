@@ -127,8 +127,6 @@ class FumacaBaseHomeAnimation {
 (new FumacaBaseHomeAnimation())
 
 /* Animação do carrossel */
-
-
 class CarrosselParallax {
     constructor() {
         this.section03 = document.getElementById('section03')
