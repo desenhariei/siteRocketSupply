@@ -1,0 +1,572 @@
+@charset "UTF-8";
+/* Communs */
+/* Paths */
+/* Cores */
+/* Fonts */
+/* Font weight */
+/* Font size */
+/* Presset gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #f3f5ff;
+  font-weight: 500;
+  font-size: 1em;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Alinhamento e tamanho padrão */
+.container {
+  width: clamp(0px, 100vw, 1000px);
+}
+
+.aling1 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.aling2 {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Espelhamento dos containers */
+.mirrorX {
+  transform: scaleX(-1);
+}
+
+.mirrorXFaixa {
+  transform: translate(0, -50%) scaleX(-1);
+}
+
+.mirrorXAstro {
+  animation: astroBounceMirror 7s infinite alternate ease-in-out;
+}
+
+/* Faixa Rocket */
+.faixaMask {
+  height: clamp(60px, 50vw, 600px);
+  width: 100%;
+  z-index: 5;
+  overflow-x: hidden;
+  position: absolute;
+}
+
+.faixa {
+  position: relative;
+  top: 40%;
+  width: 150vw;
+  background: #172944;
+  background-size: 200px 200px;
+  transform: rotate(5deg) translate(-10%, -50%);
+  transform-origin: left;
+}
+
+.faixa:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.1;
+}
+
+@media screen and (min-width: 980px) {
+  .faixa {
+    top: 42%;
+  }
+}
+/* Bg img */
+.grade {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: opacityGrade 5s ease-in-out infinite alternate;
+}
+
+@keyframes opacityGrade {
+  from {
+    opacity: 0.03;
+  }
+  to {
+    opacity: 0.01;
+  }
+}
+/* Sombra */
+.sombra {
+  filter: drop-shadow(2px 2px 3px rgba(0, 1, 15, 0.5215686275));
+}
+
+.sombra2 {
+  filter: drop-shadow(2px 2px 5px #00010f);
+}
+
+#home {
+  position: relative;
+}
+
+/* Header */
+header {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+}
+
+#headerLinks {
+  height: 100px;
+  padding-left: clamp(20px, 10vw, 70px);
+  padding-right: clamp(20px, 10vw, 70px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#headerLinks a {
+  color: rgba(243, 244, 255, 0.5254901961);
+  font-family: "Rubik", Verdana, Helvetica, sans-serif;
+}
+#headerLinks button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  /* Imagem do botão */
+  /* Fundo do botão */
+}
+#headerLinks button img {
+  width: 40px;
+  height: 20px;
+  background-size: cover;
+}
+#headerLinks button::before {
+  z-index: -1;
+  contain: "";
+  position: absolute;
+  height: 30px;
+  width: 60px;
+  background: linear-gradient(to top, #172944, 60% #00010f);
+  border-radius: 2px;
+  transition: 1s ease-in-out;
+  opacity: 0;
+}
+#headerLinks button:hover::before {
+  opacity: 1;
+}
+
+/* Main Home */
+/* Section 01 */
+#section01 {
+  height: calc(100vh - 100px);
+  margin-top: 100px;
+  position: fixed;
+  top: 0;
+  /* Fundo estrelado */
+  /* Animação do bg */
+  /* Slogan */
+}
+#section01::before {
+  content: "";
+  position: fixed;
+  height: calc(100px + 100vh);
+  width: calc(100px + 100vw);
+  top: -50px;
+  left: -50px;
+  background: url("../src/assets/imagens/spaceHome.webp"), #00010f;
+  background-position-x: -300px;
+  background-size: 100vw 100vw;
+  animation: fallSpace 7s infinite linear;
+}
+@keyframes fallSpace {
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: -100vw;
+  }
+}
+#section01 section {
+  width: calc(100% - 20px);
+  display: flex;
+  justify-content: center;
+  /* Luz Camisa */
+  /* Camisa caindo */
+  /* Logo */
+}
+#section01 section div {
+  z-index: 2;
+  position: absolute;
+  height: 50vh;
+  width: clamp(0px, 40vw, 350px);
+  top: -10%;
+  border-radius: 25%;
+  filter: blur(100px);
+  background-color: #579aff;
+  opacity: 0.2;
+}
+#section01 section video:nth-of-type(1) {
+  z-index: 1;
+  position: relative;
+  background-size: contain;
+  transform: translateX(-3%) rotate(10deg);
+  width: clamp(0px, 100%, 700px);
+  max-height: 700px;
+  filter: drop-shadow(1vw 1vw 1vw #00010f) drop-shadow(3vw 3vw 4vw #00010f);
+}
+#section01 section video:nth-of-type(2) {
+  z-index: 0;
+  position: absolute;
+  transform: translate(0, 40%);
+  background-size: contain;
+  width: clamp(0px, 100%, 800px);
+  max-height: 470px;
+  filter: brightness(0.5);
+}
+#section01 h1 {
+  position: relative;
+  margin: 20px;
+  text-align: center;
+  font-family: "Rubik", Verdana, Helvetica, sans-serif;
+  opacity: 0.7;
+}
+
+#transicaoFumaca {
+  z-index: 2;
+  width: 100%;
+  position: relative;
+  margin-top: calc(100vh - 50px);
+  overflow-x: hidden;
+}
+#transicaoFumaca section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Astronauta */
+  /* Animação do astronauta */
+  /* Impulso do foguete */
+  /* Fumaças */
+}
+#transicaoFumaca section img:nth-of-type(1) {
+  z-index: 1;
+  position: relative;
+  height: clamp(0px, 30vw, 150px);
+  width: clamp(0px, 30vw, 150px);
+  filter: brightness(1.2);
+  animation: astroBounce 2s infinite alternate ease-in-out;
+}
+@keyframes astroBouce {
+  from {
+    transform: translateY(5%);
+  }
+  to {
+    transform: translateY(-5%);
+  }
+}
+#transicaoFumaca section img:nth-of-type(2) {
+  z-index: 0;
+  height: clamp(1px, 30vw, 170px);
+  width: clamp(1px, 30vw, 170px);
+  transform: translate(clamp(0px, 3.7vw, 18px), 50%);
+  filter: drop-shadow(0 0 5px #a6210a);
+  position: absolute;
+}
+#transicaoFumaca section div:nth-of-type(1) {
+  position: relative;
+}
+#transicaoFumaca section div:nth-of-type(2) {
+  opacity: 0.7;
+  background-position-x: -100px;
+}
+#transicaoFumaca section div:nth-of-type(3) {
+  opacity: 0.5;
+  background-position-x: 100px;
+}
+
+.fumacaBaseHome {
+  height: clamp(10px, 20vw, 120px);
+  width: 150vw;
+  background: url("../src/assets/imagens/fumacaVermelha.webp");
+  background-size: clamp(100vw, 400vw, 2000px) 100%;
+  position: absolute;
+  filter: drop-shadow(0 0 5px #a6210a);
+}
+
+#section02 {
+  position: relative;
+  background-color: #232833;
+}
+#section02 .content02 {
+  position: relative;
+  height: clamp(0px, 90vw, 850px);
+  width: 100%;
+  /* Teto vermelho */
+  /* Onde fica o Container do texto */
+  /* Astronauta */
+}
+@media screen and (max-width: 875px) {
+  #section02 .content02 {
+    height: auto;
+  }
+}
+#section02 .content02 img:nth-of-type(2) {
+  width: 100%;
+  transform: translateY(-1px);
+  position: absolute;
+}
+#section02 .content02 section {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  /* Chão vermelho */
+}
+#section02 .content02 section article {
+  /* Texto */
+}
+#section02 .content02 section article div {
+  width: 100%;
+  font-family: "Poppins", Verdana, Helvetica, sans-serif;
+  text-align: justify;
+  padding: clamp(1px, 3vw, 20px) 0 clamp(1px, 3vw, 20px) clamp(1px, 6vw, 40px);
+  font-size: clamp(0.5rem, 2vw, 1rem);
+  position: relative;
+  /* Barra laterla antes do texto */
+  /* Titulo */
+  /* Parágrafo */
+}
+#section02 .content02 section article div::before {
+  content: "";
+  position: absolute;
+  height: calc(100% - clamp(2px, 6vw, 40px));
+  width: clamp(1px, 2vw, 5px);
+  background-color: #f3f5ff;
+  left: clamp(1px, 2vw, 20px);
+}
+#section02 .content02 section article div h2 {
+  font-size: clamp(0.5rem, 6.5vw, 3.4rem);
+  font-size: 700;
+}
+#section02 .content02 section article div p {
+  opacity: 0.7;
+}
+@media screen and (max-width: 875px) {
+  #section02 .content02 section article {
+    margin-top: 50px;
+  }
+}
+#section02 .content02 section img {
+  width: 100%;
+}
+#section02 .content02 figure img {
+  position: absolute;
+  width: 60%;
+  bottom: 0;
+  right: 0;
+  animation: astroBounce 7s infinite alternate ease-in-out;
+}
+@keyframes astroBounce {
+  from {
+    transform: translateY(-2%);
+  }
+  to {
+    transform: translateY(2%);
+  }
+}
+@keyframes astroBounceMirror {
+  from {
+    transform: translateY(-2%) scaleX(-1);
+  }
+  to {
+    transform: translateY(2%) scaleX(-1);
+  }
+}
+
+#section02 {
+  position: relative;
+  background-color: #232833;
+  /* Faixa com a logo da rocket branca */
+  /* Máscara */
+}
+#section02 > div {
+  transform: translateY(-50%);
+}
+#section02 > div .faixaRocketHome {
+  height: clamp(10px, 10vw, 100px);
+}
+#section02 > div .faixaRocketHome::after {
+  background: url("../src/assets/imagens/rocketLogoBranca.webp");
+  background-size: clamp(1px, 100vw, 1000px);
+  animation: logoRocketBranco 20s infinite linear;
+}
+@keyframes logoRocketBranco {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: clamp(1px, 100vw, 1000px);
+  }
+}
+
+/* Faixa Rocket */
+#transicaoFaixa {
+  transform: translateY(-50%);
+}
+
+/* Container azul */
+.faixaRocketHome2 {
+  width: clamp(10px, 150vw, 1200px);
+  height: clamp(20px, 20vw, 200px);
+  /* Imgs da logo branca */
+}
+.faixaRocketHome2::after {
+  background-image: url("../src/assets/imagens/simplifyRocket.webp");
+  background-size: clamp(20px, 20vw, 200px);
+  animation: logoRocketBranco2 5s infinite linear;
+}
+@keyframes logoRocketBranco2 {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: clamp(20px, 20vw, 200px);
+  }
+}
+
+#section03 {
+  position: relative;
+  width: 100%;
+  height: 250vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  background-color: #a6210a;
+  overflow-y: hidden;
+  /* Template rocket supply */
+  /* Container carrossel */
+}
+@media screen and (max-width: 500px) {
+  #section03 #section03 {
+    height: 150vh;
+  }
+}
+#section03::before {
+  z-index: 1;
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: url("../src/assets/imagens/rocketTemplate.webp");
+  opacity: 0.2;
+}
+#section03 div {
+  z-index: 1;
+  position: relative;
+  width: clamp(10px, 40vw, 230px);
+  height: 12500px;
+  transform: translate(0, 20px);
+  /* Carrossel */
+}
+#section03 div:nth-last-of-type(1) {
+  background: url("../src/assets/imagens/carrossel01.webp");
+}
+#section03 div:nth-last-of-type(2) {
+  background: url("../src/assets/imagens/carrossel02.webp");
+}
+#section03 div:nth-last-of-type(3) {
+  background: url("../src/assets/imagens/carrossel01.webp");
+}
+#section03 div:nth-last-of-type(4) {
+  background: url("../src/assets/imagens/carrossel03.webp");
+}
+#section03 div:nth-child(n) {
+  background-size: 100% auto;
+}
+
+#section04 {
+  z-index: 4;
+  position: relative;
+  background-color: #232833;
+  display: flex;
+  overflow: hidden;
+  /* Formas geométricas */
+  /* Forma geométrica cima */
+  /* Forma geométrica baixo */
+  /* Img e o Texto */
+}
+#section04 img:nth-of-type(n+2) {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+}
+#section04 img:nth-of-type(2) {
+  top: 0;
+}
+#section04 img:nth-of-type(3) {
+  z-index: 2;
+  bottom: 0;
+  transform: scale(-1);
+}
+#section04 section {
+  display: flex;
+  height: clamp(10px, 60vw, 600px);
+  margin: clamp(10px, 10vw, 100px) 0 clamp(5px, 10vw, 30px) 0;
+  /* Texto */
+  /* Astronauta */
+}
+#section04 section section {
+  margin: 0;
+  display: block;
+  width: clamp(10px, 60vw, 650px);
+  font-family: "Poppins", Verdana, Helvetica, sans-serif;
+  height: clamp(10px, 100vw, 600px);
+  padding: clamp(5px, 5vw, 50px) clamp(5px, 7vw, 50px);
+  /* Botão */
+}
+#section04 section section h2 {
+  font-size: clamp(0.4rem, 5vw, 3.4rem);
+  font-weight: 700;
+}
+#section04 section section button {
+  font-size: clamp(0.3em, 4vw, 1.5em);
+  font-weight: 600;
+  background-color: #a6210a;
+  padding: clamp(5px, 2vw, 15px) clamp(10px, 5vw, 40px);
+  border-radius: 3px;
+  margin: clamp(5px, 5vw, 50px) 0;
+}
+#section04 section img {
+  z-index: 1;
+  position: absolute;
+  width: 60%;
+  bottom: 0;
+  right: 0;
+  animation: astroBounce 7s infinite alternate ease-in-out;
+}
+
+footer {
+  z-index: 5;
+  position: relative;
+  margin-top: -1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #a6210a;
+}
+footer * {
+  color: #f3f5ff;
+  font-family: "Poppins", Verdana, Helvetica, sans-serif;
+  opacity: 0.6;
+  font-size: clamp(0.35em, 3vw, 1.3em);
+}
+footer a {
+  opacity: 0.7;
+  text-decoration: underline;
+}
