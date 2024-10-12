@@ -1,0 +1,57 @@
+#transicaoFumaca
+    z-index: 2
+    width: 100%
+    position: relative
+    margin-top: calc( 100vh - 100px )
+    overflow-x: hidden
+
+    section
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        /* Astronauta */
+        img:nth-of-type(1)
+            z-index: 1
+            position: relative
+            height: clamp(1px, 30vw, 150px)
+            width: clamp(1px, 30vw, 150px)
+            filter: brightness(1.2)
+            animation: astroBounce 2s infinite alternate ease-in-out
+        /* Animação do astronauta */
+        @keyframes astroBouce
+            from 
+                transform: translateY(5%)
+            to
+                transform: translateY(-5%)
+            
+        /* Impulso do foguete */
+        img:nth-of-type(2)
+            z-index: 0
+            height: clamp(1px, 30vw, 170px)
+            width: clamp(1px, 30vw, 170px)
+            transform: translate(clamp(1px, 3.7vw, 18px), 50%)
+            filter: drop-shadow(0 0 5px $vermelho)
+            position: absolute
+
+        /* Fumaças */
+        div
+            &:nth-of-type(1)
+                position: relative
+
+            &:nth-of-type(2)
+                opacity: 0.7
+                background-position-x: -100px
+
+            &:nth-of-type(3)
+                opacity: 0.5
+                background-position-x: 100px
+                
+.fumacaBaseHome
+    height: clamp(10px, 20vw, 120px)
+    width: 150vw
+    background: url(path('fumacaVermelha.webp'))
+    background-size: clamp(100vw, 400vw, 2000px) 100%
+    position: absolute
+    filter: drop-shadow(0 0 5px $vermelho)
+    will-change: background-position

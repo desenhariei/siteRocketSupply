@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Supply</title>
+
+    <!-- Css -->
+    <style></style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="container aling1">
+        @@include('communs/header.html')
+    </header>
+
+    <main>
+        <!-- Home -->
+        <section id="home" class="container aling2">
+            <!-- Section 01 / Iniciar -->
+            <section id="section01" class="container">
+                @@include('home/main/section01.html')
+            </section>
+
+            <!-- Transition -->
+            <section id="transicaoFumaca">
+                @@include('home/main/transition_1-2.html')
+            </section>
+
+            <!-- Section 02 / AboutUs -->
+            <section id="section02">
+                <!-- AboutUs -->
+                @@include('home/main/section02/aboutUs01.html')
+
+                <div class="faixaMask">
+                    @@include('home/main/section02/transition1.html')
+                </div>
+
+                @@include('home/main/section02/aboutUs02.html')
+
+                <div class="mirrorXFaixa faixaMask">
+                    @@include('home/main/section02/transition2.html')
+                </div>
+
+                @@include('home/main/section02/aboutUs03.html')
+
+                <div class="faixaMask">
+                    @@include('home/main/section02/transition1.html')
+                </div>
+
+                @@include('home/main/section02/aboutUs04.html')
+            </section>
+
+            <!-- Transition -->
+            <section id="transicaoFaixa" class="container mirrorXFaixa faixaMask">
+                @@include('home/main/transition_2-3.html')
+            </section>
+
+            <!-- Section 03 / Carrossel -->
+            <section id="section03">
+                @@include('home/main/section03.html')
+            </section>
+
+            <!-- Transition -->
+            <section id="transicaoFaixa" class="container faixaMask">
+                @@include('home/main/transition_2-3.html')
+            </section>
+
+            <!-- Section04 -->
+            <section id="section04">
+                @@include('home/main/section04.html')
+            </section>
+        </section>
+    </main>
+
+    <footer class="container aling1">
+        @@include('home/footer/footer.html')
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
